@@ -4,8 +4,7 @@ import sys
 
 from slackclient import SlackClient
 
-
-BOT_NAME = 'pybitesbot'
+BOT_NAME = 'testbot'
 
 slack_client = SlackClient(os.environ.get('SLACK_BOT_TOKEN'))
 
