@@ -1,5 +1,6 @@
 /users.txt
 /nohup.out
+/.env
 *pyc
 *swp
 venv

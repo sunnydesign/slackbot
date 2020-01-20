@@ -14,7 +14,7 @@ from commands.standup import get_standup
 cmd_names = ('standup', 'mood', 'celebration', 'num_posts', '100day_tweet', 'weather')
 cmd_functions = (get_standup, get_mood, celebration, get_num_posts, create_tweet, get_weather)
 COMMANDS = dict(zip(cmd_names, cmd_functions))
-START_TIME = "21:38:00"
+START_TIME = "12:10:00"
 
 def handle_command(cmd, channel):
     cmd = cmd.split()
@@ -97,7 +97,6 @@ def get_users():
         for user in users:
             if (user.get('is_bot') == False and user.get('name') != "slackbot"):
                 users_list.append(user)
-                print("User name: '" + user['name'] + "' user_id " + user.get('id'))
 
         write_users(users_list)
 
