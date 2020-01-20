@@ -1,3 +1,4 @@
+import os
 import sys
 import time
 import json
@@ -14,7 +15,9 @@ from commands.standup import get_standup
 cmd_names = ('standup', 'mood', 'celebration', 'num_posts', '100day_tweet', 'weather')
 cmd_functions = (get_standup, get_mood, celebration, get_num_posts, create_tweet, get_weather)
 COMMANDS = dict(zip(cmd_names, cmd_functions))
-START_TIME = "12:10:00"
+START_TIME = "12:30:00"
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+USERS_FILE = PROJECT_ROOT + "/users.txt"
 
 def handle_command(cmd, channel):
     cmd = cmd.split()
@@ -34,7 +37,7 @@ def handle_command(cmd, channel):
 
 
 def write_users(users):
-    f = open('users.txt', 'w')
+    f = open(USERS_FILE, 'w')
 
     for user in users:
         f.write(json.dumps(user) + '\n')
@@ -42,7 +45,7 @@ def write_users(users):
 
 
 def get_users_local():
-    f = open('users.txt', 'r')
+    f = open(USERS_FILE, 'r')
     lines = f.readlines()
     users_list = []
 
